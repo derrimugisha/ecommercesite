@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block includer %}
+
+
+{% for x in banner %}
+
+ <a href="{% url 'single' x.pk %}">{{x.productname}}</a> <br>
+
+ <!-- <img src="{{ x.picture.url }}" alt=""> -->
+
+{% endfor %}
+
+
+
+
+
+{% endblock includer %}

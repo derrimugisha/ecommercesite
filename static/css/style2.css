@@ -1,0 +1,68 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 90%;
+  border: 3px solid #f60;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85em;
+  display: inline-block;
+ 
+}
+
+.searchTerm:focus{
+  color:black;
+}
+
+.searchButton {
+  /* width: 40px;
+  height: 20px; */
+  border: 1px solid #f60;
+  background: #f60;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  /* position: absolute;
+  top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%); */
+}
+.the_font{
+  font-family: 'Oswald', sans-serif;
+}
+
+.badge-notify{
+    background:red;
+    position:relative;
+    top: -15px;
+    right: 12px;
+  }
+  /* .my-cart-icon-affix {
+    
+    
+  } */
+
+  .shopper {
+    margin-top: 1em;
+    color: black;
+    margin-left: 0.5em;
+}
