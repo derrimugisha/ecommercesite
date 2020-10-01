@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block passwords %}
+
+<div class="login">
+	<div class="container">
+		<div class="login-main">
+			  <h1>Check Out Preview</h1>
+		  <div class="col-md-6 login-left">
+			<h2>Enter your delivery Address</h2>
+			<form method="post">
+                {% csrf_token %}
+                <div class="the_font">{{form.user.label}}</div>
+                {{ form.user }}
+
+                <div class="the_font">{{form.country.label}}</div>
+                {{ form.country }}
+                
+                <div class="the_font">{{form.district.label}}</div>
+                {{ form.district }}
+
+                <div class="the_font">Phone Number</div>
+                {{ form.phone }}
+                
+                <div class="the_font">{{form.email.label}}</div>
+                {{ form.email }}
+                
+                <div class="the_font">{{form.streetaddress.label}}</div>
+                {{ form.streetaddress }}
+
+                <div class="the_font">{{form.apartmentaddress.label}}</div>
+                {{ form.apartmentaddress }}
+			</form>
+			
+		  </div>
+
+		  <div class="col-md-6 login-right">
+
+            <h4>You are checking out Items</h4>
+
+            <div id="cart_show">
+
+            </div>
+
+            <div class="row" id="mycartshow">
+
+              <table class="table table-striped">
+                <thead>
+                    <td></td>
+                    <td>Name</td>
+                    <td>Quantity</td>
+                    <td>Price</td> 
+                </thead>
+                <tbody id="tablebody">
+
+                </tbody>
+                <footer>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="total"></td>
+                  </tr>
+                </footer>
+              </table>
+
+          
+            </div>
+
+            <h4>Note</h4>
+		  	
+		  	 <p>
+
+                Please for security purposes, make sure that the address you are to confirm is right. <br>
+                We deliver your product on the address you have confirmed  
+
+            </p>
+		     <a href="{% url 'signup' %}" class="login-btn">Confirm Address </a>
+		  </div>
+		  <div class="clearfix"> </div>
+		</div>
+	</div>
+
+{% endblock passwords %}

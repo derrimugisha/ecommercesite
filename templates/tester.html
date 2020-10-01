@@ -7,11 +7,23 @@
 
 {% for x in banner %}
 
- <a href="{% url 'single' x.pk %}">{{x.productname}}</a> <br>
+ <!-- <a href="{% url 'single' x.pk %}">{{x.productname}}</a> <br> -->
 
  <!-- <img src="{{ x.picture.url }}" alt=""> -->
 
 {% endfor %}
+
+{% for x in filtcategory %}
+
+  {{x.productname}} <br>
+
+{% endfor %}
+
+<form method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Save" />
+  </form>
+  
 
 
 

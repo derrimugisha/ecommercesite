@@ -1,214 +1,203 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %} {% block heading %}
 
-{% load static %}
-
-{% block heading %}
-
-<!--banner strat here-->
-<div class="banner">
-	<div class="container">
-        <!-- {% for x in banner %}
-        <a href="{% url 'single' x.pk %}">{{x.productname}}</a> <br>
-       {% endfor %} -->
-      <div class="banner-main">
-             {% for x in banner %}
-          <div class="col-md-6 banner-left">
-             <a href="{% url 'single' x.pk %}"><img src="{{ x.picture.url }}" alt="" class="img-responsive"></a>
-           </div>
-           <div class="col-md-6 banner-right simpleCart_shelfItem">
-            <span class="bann-heart"> </span>
-            <h2>{{x.productname}}</h2>
-            <h1>{{ x.product_description }}</h1>
-            <h5 class="item_price">{{x.price}}</h5>
-            <ul class="bann-small-img">
-                <li><a href="{% url 'single' x.pk %}"><img src="{{x.picture.url}}"></a></li>
-				<li><a href="{% url 'single' x.pk %}"><img src="{{x.picture.url}}"></a></li>
-            </ul>
-            <h6>Size Charts</h6>
-
-            <ul class="bann-btns">
-				<li><select class="bann-size">
-					<option value="select your location">Size</option>
-					<option value="saab">Small</option>
-					<option value="fiat">Medium</option>
-					<option value="audi">Large</option>
-				</select>
-				</li>
-				<li><a href="#" class="item_add">Add To Cart</a></li>
-               </ul>
-
-           </div>
-           {% endfor %}
-           <div class="clearfix">
-
-           </div>
+<!-- another container -->
+<div class="container">
+  <div id="" class="carousel slide rounded img_container" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static '/img/hanged2.jpg' %}" class="w-100" alt="..." />
       </div>
-      
-      
-	</div>
+      <div class="carousel-item">
+        <img src="{% static '/img/wall3.jpg' %}" class="w-100" alt="..." />
+      </div>
+      <div class="carousel-item">
+        <img src="{% static '/img/makeup2.jpg' %}" class="w-100" alt="..." />
+      </div>
+    </div>
+  </div>
 </div>
-<!--banner end here-->
+<!-- end of the container -->
 
-<!--block-layer2 start here-->
-<div class="blc-layer2">
-	<div class="container">
-		<div class="blc-layer2-main">
-			 <div class="col-md-6 blc-layer2-left">
-			 	  <h3>voluptatem sequi nesciunt.</h3>
-				   <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system.</p>
-				   
-			 </div>
-			 <div class="col-md-6 blc-layer2-right">
-			 	
-			 </div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
+<!-- another container -->
+<div class="container">
+  <div class="row p-2">
+    <div class="col-lg-4">
+      <div class="shadow-2-strong p-lg-2 rounded img_container">
+        <img
+          src="{% static '/img/men3.jpg' %}"
+          alt=""
+          srcset=""
+          class="img_container blocker1"
+        />
+        <div class="p-2">
+          <a href="{% url 'men' %}" class="btn btn-block shadow-2-strong">Men</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4" id="themidle">
+      <div class="shadow-2-strong p-2 rounded">
+        <div class="d-flex justify-content-center">
+          <img
+            src="{% static '/img/claireslogo.png' %}"
+            alt=""
+            srcset=""
+            class="img_container shadow-5-strong rounded"
+          />
+        </div>
+        <div class="p-2">
+          <h4 class="text-center">Clairs Shop for your best Product</h4>
+          <p class="text-dark">
+            Claires shop deals in clothing for Men,Women, and accesories. You
+            can shop from where you are and we deliver to you!
+          </p>
+
+          <h4 class="text-center">Benefits</h4>
+
+          <p class="text-dark">
+            Order for more than one product and get a chance to win a free on
+            line coupon that you can use to buy from Claires Shop!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 text-center">
+      <div class="shadow-2-strong p-2 rounded">
+        <img
+          src="{% static '/img/woman11.jpg' %}"
+          alt=""
+          srcset=""
+          class="img_container"
+        />
+        <div class="p-2 blocker">
+          <a href="{% url 'women' %}" class="btn btn-block shadow-2-strong">Women</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<!--block-layer2 end here-->
+<!-- end ofcontainer -->
 
-<!--block-layer1 start here-->
-<div class="blc-layer3">
-	<div class="container">
-		<div class="blc-layer3-main">
-			   <div class="col-md-4 blc-layer3-grids1">
-			   	    <h6>Claires Shop</h6>
-			   	    <h3>For your best product</h3>
-			   	    <p>Claires shop deals in clothing for Men,Women, and kids. You can shop from out
-						    site and we deliver to you every where you are.
-						    </p>
-			         <h6>Benefits</h6>
-			        <ul>
-			        	<li><h4>Free tickets</h4>
-			        		<h5>Buy with claires shop and get an online tickets that can help
-								buy goods with claires shop </h5>
-			        	</li>
-			
-			        </ul>
-			   </div>
-			   <div class="col-md-4 blc-layer3-grids2">
-				   {% for womenshow in womenshow %}
-				        <a href="{% url 'single' womenshow.pk  %}"><img src="{{ womenshow.picture.url }}" alt=""></a>
-				   {% endfor %}
-			   
-			   </div>
-			   <div class="col-md-4 blc-layer3-grids-3 simpleCart_shelfItem">
-				 <div class="box-grid">
-				   	<h3><a href="">ACCESSORIES</a></h3>
-				   	<p>With claires shop you can get the best accessoreis! </p>
-					   {% for x in accessories %}
-					   <h5>{{ x.productname }}</h5>
-				   	<a href="{% url 'single' x.pk  %}"><img src="{{ x.picture.url }}" alt=""></a>
-				   	<div class="box-grid-price">
-				   		<div class="box-grid-price-left">
-				   			<h4>Stock</h4>
-				   		</div>
-				   		<div class="box-grid-price-rit">
-				   			<h4 class="item_price">{{x.price}}</h4>
-				   		</div>
-				   		<div class="clearfix"> </div>
-					   </div>
-					   {% endfor %}
-				   	<ul class="bann-btns">
-						<li class="ys-margin"><select class="bann-size">
-							<option value="saab">Small</option>
-							<option value="fiat">Medium</option>
-							<option value="audi">Large</option>
-						</select>
-						</li>
-						<li><a href="#" class="item_add">Add To Cart</a></li>
-	               </ul>
-				 </div>
-			   </div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
+<!-- another container -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="row" id="insde1">
+        <div class="col-lg-6 m-0 p-0">
+          <img
+            src="{% static '/img/dbag5.jpg' %}"
+            alt=""
+            srcset=""
+            class="w-100"
+          />
+        </div>
+
+        <div class="col-lg-6 m-0 p-0">
+          <div class="text-center m-2">
+            <h3 class="">SPECIAL OFFERS OF BEST ACCESSORIES</h3>
+          </div>
+
+          <div class="text-center py-2">
+            <h3 class="">AND DISCOUNTS</h3>
+          </div>
+
+          <div class="text-center">
+            <h3 class="">ON COOL BAGS</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col m-0 p-0">
+          <div class="text-center py-3">
+            <h3 class="">SPECIAL OFFERS OF BEST ACCESSORIES</h3>
+          </div>
+
+          <div class="text-center py-2">
+            <h3 class="">AND DISCOUNTS</h3>
+          </div>
+
+          <div class="text-center">
+            <h3 class="">ON COOL BAGS</h3>
+          </div>
+        </div>
+        <div class="col m-0 p-0">
+          <img
+            src="{% static '/img/p2.jpg' %}"
+            alt=""
+            srcset=""
+            class="w-100"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 shadow-2-strong py-5">
+      {% for womenshow in womenshow %}
+      <img src="{{ womenshow.picture.url }}" alt="" srcset="" class="w-100" />
+      {% endfor %}
+
+      <div class="d-flex justify-content-center p-2">
+        <a href="#" class="btn btn-lg shadow-2-strong">Add to cart</a>
+      </div>
+      <div class="d-flex justify-content-center">
+        <img
+          src="{% static '/img/claireslogo.png' %}"
+          alt=""
+          srcset=""
+          class="h-90"
+        />
+      </div>
+    </div>
+  </div>
 </div>
-<!--block-layer1 end here-->
+<!-- end of container -->
 
-<!--home-block start here-->
-<div class="home-block">
-	<div class="container">
-		<div class="home-block-main">
-		
-			{% for allproducts in all_products %}
-			    <div class="col-md-3 home-grid">
+<!-- another container -->
+<div class="container">
+  <div class="row">
+    <div class="col d-flex justify-content-center py-2">
+      <h3>In Claires Store</h3>
+    </div>
+    {% for a in all_products|slice:"2" %}
+    <div class="row p-lg-2 p-md-0">
+      {% for allproducts in all_products|slice:"4" %}
+      <div class="col-lg-3 col-md-6 py-lg-2">
+        <div class="px-2 shadow-5-strong w-auto h-100">
+          <div class="singlebox">
+            <a href="{% url 'single' allproducts.pk  %}"><img
+              src="{{ allproducts.picture.url }}"
+              alt=""
+              srcset=""
+              class="fitter"
+            /></a>
+          </div>
+          <div id="name" class="d-flex justify-content-center rounded">
+            {{allproducts.productname }}
+          </div>
 
-					<div class="home-product-main">
+          <div
+            id="price"
+            class="shadow-2 d-flex justify-content-center rounded"
+          >
+            <span class="pill pill-primary">UGX</span> {{allproducts.price}}
+          </div>
 
-						<div class="home-product-main">
+          <div id="preview" class="d-flex justify-content-center rounded">
+            <a
+              href="#"
+              class="btn btn-block btn-outline-information my-2"
+              >Add to cart</a
+            >
+          </div>
+        </div>
+      </div>
 
-							<a href="{% url 'single' allproducts.pk  %}"><img src="{{ allproducts.picture.url }}" alt="" class="img-responsive zoom-img"></a>
-
-						</div>
-
-						<div class="home-product-bottom">
-							<h3><a href="{% url 'single' allproducts.pk  %}">Claires Shop</a></h3>
-							<p>Explore Now</p>						
-					   </div>
-
-					   <div class="srch">
-						<span>{{allproducts.price}}</span>
-					   </div>
-
-					</div>
-
-				</div>
-			{% endfor %}
-			
-			
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-</div>	
-<!--home block end here-->
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<!-- end of container -->
 
 {% endblock heading %}
 
-<!-- begining of navlinks_men -->
-{% block navlinks_men  %}
-
-{% for x in queryset %}
-
-<div class="col-sm-4">
-	<ul class="multi-column-dropdown">
-		<li><a href="{% url 'product_m' %}">{{x.category_name}}</a></li>
-	</ul>
-</div>
-
-{% endfor %}
-
-{% endblock navlinks_men %}
-<!-- ending of navlinks_men -->
-
-<!-- begining of navlinks_women -->
-{% block navlinks_women  %}
-
-{% for x in queryset2 %}
-
-<div class="col-sm-4">
-	<ul class="multi-column-dropdown">
-		<li><a href="{% url 'product' %}">{{x.category_name}}</a></li>
-	</ul>
-</div>
-
-{% endfor %}
-
-{% endblock navlinks_women %}
-<!-- ending of navlinks_women -->
-
-<!-- begining of navlinks_kids -->
-{% block navlinks_kids  %}
-
-{% for x in queryset3 %}
-
-<div class="col-sm-4">
-	<ul class="multi-column-dropdown">
-		<li><a href="{% url 'product' %}">{{x.category_name}}</a></li>
-	</ul>
-</div>
-
-{% endfor %}
-
-{% endblock navlinks_kids %}
-<!-- ending of navlinks_kids -->
