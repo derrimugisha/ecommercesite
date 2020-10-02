@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% load static %}
+
+<div>{% load crispy_forms_tags %}</div>
+
+{% block passwords %}
+
+<div class="container">
+  <div class="row p-2">
+    <div class="col-lg-12 d-flex justify-content-center">
+      <div>
+        <h1>Check Out Preview</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6 p-2">
+      <div class="">
+        <h2>Enter your delivery Address</h2>
+        <form method="post">{% csrf_token %} {{ form|crispy }}</form>
+      </div>
+    </div>
+
+    <div class="col-lg-6 p-2">
+      <div class="">
+        <h4>You are checking out Items</h4>
+
+        <div id="cart_show"></div>
+
+        <div class="row" id="mycartshow">
+          <table class="table table-striped">
+            <thead>
+              <td></td>
+              <td>Name</td>
+              <td>Quantity</td>
+              <td>Price</td>
+            </thead>
+            <tbody id="tablebody"></tbody>
+            <footer>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="total"></td>
+              </tr>
+            </footer>
+          </table>
+        </div>
+
+        <h4>Note</h4>
+
+        <p>
+          Please for security purposes, make sure that the address you are to
+          confirm is right. <br />
+          We deliver your product on the address you have confirmed
+        </p>
+        <div class="m-2">
+          <button class="btn btn-success">Confirm Address</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock passwords %}

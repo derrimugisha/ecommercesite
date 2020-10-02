@@ -2,282 +2,317 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ClairesShop</title>
 
-    <link href="{%static 'css/bootstrap.css'%}" rel="stylesheet" type="text/css" media="all">
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="{%static 'js/jquery-2.2.3.min.js'%}"></script>
-    <!-- Custom Theme files -->
-	<link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css" media="all"/>
-	<link href="{% static 'css/style2.css'%}" rel="stylesheet" type="text/css" media="all"/>
-    <!-- Custom Theme files -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Shoplist Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!--Google Fonts-->
-    <link href='//fonts.googleapis.com/css?family=Hind:400,500,300,600,700' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
-    <!-- start-smoth-scrolling -->
-    <script type="text/javascript" src="{% static 'js/move-top.js'%}"></script>
-	<script type="text/javascript" src="{% static 'js/easing.js'%}"></script>
-	<script type="text/javascript" src="{% static 'js/jquery.session.js'%}"></script>
-        <script type="text/javascript">
-                jQuery(document).ready(function($) {
-                    $(".scroll").click(function(event){		
-                        event.preventDefault();
-                        $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-                    });
-                });
-        </script>
-	<!-- //end-smoth-scrolling -->
-	
-	<!--flex slider-->
-<script defer src="{% static 'js/jquery.flexslider.js' %}"></script>
-<link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="screen" />
+    <link
+      rel="icon"
+      href="{% static 'img/favicon.png' %}"
+      type="image/x-icon"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
+    <!-- Custom styles -->
 
-<script>
-// Can also be used with $(document).ready()
-$(window).load(function() {
-  $('.flexslider').flexslider({
-    animation: "slide",
-    controlNav: "thumbnails"
-  });
-});
-</script>
-<!--flex slider-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+    />
 
+    <link rel="stylesheet" href="{% static '/css/mystyle.css' %}" />
+  </head>
+  <body class="Roboto_bold">
+    <header>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+          <!-- Navbar brand -->
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <img
+              src="{% static '/img/claireslogo.png' %}"
+              height="60"
+              alt=""
+              loading="lazy"
+          /></a>
 
-	<script src="{% static 'js/imagezoom.js' %}"></script>
-	<script src="{% static 'js/bootstrap.min.js' %}"></script>
-	<script type='text/javascript' src="{% static 'js/jquery.mycart.js' %}"></script>
-	<script type='text/javascript' src="{% static 'js/cart_runs.js' %}"></script>
-    
+          <!-- Toggle button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
 
-</head>
-<body>
+          <!-- Collapsible wrapper -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Left links -->
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="{% url 'home' %}"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'men' %}">Men</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'women' %}">Women</a>
+              </li>
 
-    <!--header strat here-->
-<div class="header">
-	<div class="container">
-		<div class="header-main">
-			<div class="top-nav">
-				<div class="content white">
-	              <nav class="navbar navbar-default" role="navigation">
-					    <div class="navbar-header">
-					        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						        <span class="sr-only">Toggle navigation</span>
-						        <span class="icon-bar"></span>
-						        <span class="icon-bar"></span>
-						        <span class="icon-bar"></span>
-					        </button>
-					        <div class="navbar-brand logo">
-								<a href="{% url 'home' %}"><img src="{% static 'images/claireslogo.png' %}" alt="" style=" height: 55px;"></a>
-							</div>
-					    </div>
-					    <!--/.navbar-header-->
-					 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					        <ul class="nav navbar-nav">
-					        	   <li><a href="{% url 'home' %}">Home</a></li>
-						             <li class="dropdown">
-						        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Men <b class="caret"></b></a>
-						            <ul class="dropdown-menu multi-column columns-3">
-							            <div class="row">
-								           
-											{% block navlinks_men %}
-	  
-											{% endblock navlinks_men %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'accessories' %}"
+                  >Accessories</a
+                >
+              </li>
+            </ul>
+            <!-- Left links -->
 
-											{% block form_link_men %}
-											{% endblock form_link_men %}
+            <ul class="navbar-nav d-flex flex-row">
+              <!-- Icons -->
+              <li class="nav-item mr-3 mr-lg-0">
+                <a class="nav-link my-cart-icon" href="#">
+                  <span
+                    class="badge badge-notify my-cart-badge my-cart-icon"
+                  ></span>
+                  <i class="fas fa-shopping-cart"></i>
+                </a>
+              </li>
 
-							            </div>
-						            </ul>
-						        </li>
-						            <li class="dropdown">
-						        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Women <b class="caret"></b></a>
-						            <ul class="dropdown-menu multi-column columns-3">
-							            <div class="row">
-											{% block navlinks_women %}
-	  
-											{% endblock navlinks_women %}
-											
-											{% block form_link_women %}
-											{% endblock form_link_women %}
-							            </div>
-						            </ul>
-						        </li>
-						         <li class="dropdown">
-						        	<a href="#" class="dropdown-toggle" data-toggle="dropdown">Kids<b class="caret"></b></a>
-						            <ul class="dropdown-menu multi-column columns-3">
-							            <div class="row">
-								            
-											{% block navlinks_kids %}
-	  
-											{% endblock navlinks_kids %}
+              {% if user.is_authenticated %}
+              <!-- Icon dropdown -->
+              <li class="nav-item mr-3 mr-lg-0 dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="fas fa-user">Hi {{ user.username }}!</i>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">My Account</a></li>
+                  <!-- <li><a class="dropdown-item" href="#">Another action</a></li> -->
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'logout' %}"
+                      >Log Out</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}"
+                  ><span class="font-weight-bolder font-dark clr_balck"
+                    >Sign In/Sign Up</span
+                  >
+                </a>
+              </li>
+              {% endif %}
+            </ul>
 
-											{% block form_link_kids%}
-											{% endblock form_link_kids %}
-							            </div>
-						            </ul>
-						        </li>
-						        <li><a href="{% url 'contact' %}">Contact</a></li>
-					        </ul>
-					    </div>
-					    <!--/.navbar-collapse-->
-					</nav>
-					<!--/.navbar-->
-				</div>
-			</div>
-			<div class="header-right">
-				<div class="search">
+            <!-- Search form -->
+            <form class="d-flex input-group w-auto">
+              <input
+                type="search"
+                class="form-control"
+                placeholder="Type query"
+                aria-label="Search"
+              />
+              <button
+                class="btn btn-outline-primary"
+                type="button"
+                data-ripple-color="dark"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+          <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
 
-					<div class="search-text">
-				
-							<form action="">
-				
-								<div class="search">
-				
-									<input class="searchTerm" type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"/>
-									<input src="{% static 'images/search.png' %}" name="submit" type="image" class="searchButton">
-				
-								</div>
-							
-							</form>
-				
-					</div>
-				
-					<div class="cart  ">
-				
-						<div style=" cursor: pointer;" class="shopper  ">
-							<span class="glyphicon glyphicon-shopping-cart  my-cart-icon  m-2"></span>
-							<span class="badge badge-notify my-cart-badge my-cart-icon"></span>
-						</div>
-				
-					</div>
-				
-					<div class="head-signin">
-						{% if user.is_authenticated %}
-						<h5><a href="{% url 'logout' %}"><i class="hd-dign"></i>Hi {{ user.username }}!</a></h5>
-						{% else %}
-						<h5><a href="{% url 'login' %}"><i class="hd-dign"></i>Sign in</a></h5>
-						{% endif %}
-						
-					</div>   
-				</div>
-			</div>
-		 <div class="clearfix"> </div>
-		</div>
-	</div>
-</div>
+      <!-- Navbar -->
+    </header>
 
-<div style="background-color: aqua; height:12">
-	{% block includer %}
-	{% endblock includer %}
-</div>
+    <main class="mybg">
+      <div>{% block heading %} {% endblock heading %}</div>
 
-<!--header end here-->
+      <div>{% block checkout %} {% endblock checkout %}</div>
 
-    {% block heading %}
+      <div>{% block contact %} {% endblock contact %}</div>
 
-    {% endblock heading %}
+      <div>{% block product %} {% endblock product %}</div>
 
-    {% block checkout %}
-    {% endblock checkout %}
+      <div>{% block signup %} {% endblock signup %}</div>
 
-    {% block contact %}
-    {% endblock contact %}
+      <div>{% block login %} {% endblock login %}</div>
 
-    {% block product %}
-    {% endblock product %}
+      <div>{% block single %} {% endblock single %}</div>
 
-    {% block signup %}
-    {% endblock signup %}
+      <div>{% block terms %} {% endblock terms %}</div>
 
-    {% block login %}
-    {% endblock login %}
+      <div>{% block product_k %} {% endblock product_k %}</div>
 
-    {% block single %}
-    {% endblock single %}
+      <div>{% block product_m %} {% endblock product_m %}</div>
 
-    {% block terms %}
-    {% endblock terms %}
+      <div>{% block tester %} {% endblock tester %}</div>
 
-    {% block product_k %}
-    {% endblock product_k %}
+      <div>{% block success %} {% endblock success %}</div>
 
-    {% block product_m %}
-	{% endblock product_m %}
-	
-	{% block tester %}
-	{% endblock tester %}
+      <div>{% block passwords %} {% endblock passwords %}</div>
+    </main>
 
-	{% block success %}
-	{% endblock success %}
+    <footer class="bg-dark text-white text-center text-lg-left">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
+            <h5 class="small1 bold">Contact</h5>
 
-    <!--footer strat here-->
-<div class="footer">
-	<div class="container">
-		<div class="footer-main">
-			<div class="ftr-grids-block">
-				<div class="col-md-3 footer-grid">
-					<ul>
-						<li><a href="{% url 'product' %}">Accessories</a></li>
-						<li><a href="{% url 'product' %}">Hand bags</a></li>
-						<li><a href="{% url 'product' %}">Clothing</a></li>
-						<li><a href="{% url 'product' %}">Brands</a></li>
-						<li><a href="{% url 'product' %}">Watches</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 footer-grid">
-					<ul>
-						<li><a href="{% url 'login' %}">Your Account</a></li>
-						<li><a href="{% url 'contact' %}">Contact Us</a></li>
-						<li><a href="{% url 'product' %}">Store Locator</a></li>
-						<li><a href="pressroom.html">Press Room</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 footer-grid">
-					<ul>
-						<li><a href="{% url 'terms' %}">Website Terms</a></li>
-						<li><select class="country">
-										<option value="select your location">Select Country</option>
-										<option value="saab">Australia</option>
-										<option value="fiat">Singapore</option>
-										<option value="audi">London</option>
-									</select>
-							
-						</li>
-						<li><a href="shortcodes.html">Short Codes</a></li>
-					</ul>
-				</div>
-				<div class="col-md-3 footer-grid-icon">
-					<ul>
-						<li><a href="#"><span class="u-tub"> </span></a></li>
-						<li><a href="#"><span class="instro"> </span></a></li>
-						<li><a href="#"><span class="twitter"> </span></a></li>
-						<li><a href="#"><span class="fb"> </span></a></li>
-						<li><a href="#"><span class="print"> </span></a></li>
-					</ul>
-					<form>
-					<input class="email-ftr" type="text" value="Newsletter" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Newsletter';}">
-					<input type="submit" value="Submit"> 
-					</form>
-				</div>
-		    <div class="clearfix"> </div>
-		  </div>
-		  <div class="copy-rights">
-		     <p>© 2020 Shoplist. All Rights Reserved | Design by  Mugisha Derrick </p>
-		   </div>
-		</div>
-	</div>
-</div>
-<!--footer end here-->
+            <ul class="list-unstyled mb-0">
+              <li>
+                <span class="text-white small1">Email: clairesshop71@gmail.com</span>
+              </li>
+              <li>
+                <span class="text-white small1">Phone: 0752402265</span>
+              </li>
+             
+            </ul>
+          </div>
+          <!--Grid column-->
 
-</body>
-<script src="https://checkout.flutterwave.com/v3.js"></script>
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="small1 bold">About</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <span class="text-white small1">ClairesShop deals 
+                  in clothings and accessories for both men and women.
+                <br> ClairesShop brings online shopping to your door!
+              <br>Shop with ClairesShop and make a difference  </span>
+              </li>
+              
+      
+            </ul>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <!-- <h5 class="small1 bold">Opportunity</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!" class="text-white small1">Jobs</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white small1">Volunteers</a>
+              </li>
+            </ul> -->
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <!-- <h5 class="mb-0 text-center small1 bold">Get the app!</h5>
+            <div class="d-flex justify-content-center">
+              <a href="#" class="text-light"
+                ><i class="fab fa-apple fa-5x m-5"></i
+              ></a>
+              <a href="#" class="text-light"
+                ><i class="fab fa-android fa-5x m-5"></i
+              ></a>
+            </div> -->
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </div>
+      <!-- Grid container -->
+
+      <div class="container">
+        <div class="row">
+          <div class="col-2">
+            <a href="#" class="mx-2">
+              <i class="fab fa-facebook-square btn-dark"></i
+            ></a>
+            <a href="#" class="mx-2">
+              <i class="fab fa-youtube btn-dark"></i
+            ></a>
+            <a href="#" class="mx-2"><i class="fab fa-twitter btn-dark"></i></a>
+            <a href="#" class="mx-2"
+              ><i class="fab fa-instagram btn-dark"></i
+            ></a>
+
+            <div class="text-center p-3 small">
+              © 2020
+              <a class="text-white" href="#">ClairesShop.</a>
+            </div>
+          </div>
+
+          <div class="col-6 text-center">
+            <span class="mx-2">
+              <a href="#" class="text-light small1"
+                ><i class="fas fa-globe"></i> English</a
+              >
+            </span>
+            <span class="mx-2">
+              <a href="#" class="text-light small1">
+                <i class="fas fa-map-marker-alt"></i> Kampala
+              </a>
+            </span>
+          </div>
+
+          <div class="col-4">
+            <div class="text-center">
+              <!-- <a href="#" class="text-white small1">Terms of Use</a> |
+              <a href="#" class="text-white small1">Privacy</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script
+    type="text/javascript"
+    src="{% static 'js/jquery-2.2.3.min.js' %}"
+  ></script>
+  <!-- MDB -->
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+  <!-- Custom scripts -->
+
+  <script src="https://checkout.flutterwave.com/v3.js"></script>
+  <script src="{% static 'js/jquery.session.js' %}"></script>
+  <script
+    type="text/javascript"
+    src="{% static 'js/jquery.mycart.js' %}"
+  ></script>
+  <script type="text/javascript" src="{% static 'js/cart_runs.js' %}"></script>
 </html>

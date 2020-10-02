@@ -1,94 +1,66 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %} {% block login %}
 
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 p-5 text-center">Log in</div>
 
+    <div class="row">
+      <div class="col-lg-12 p-5 d-flex justify-content-center">
+        <div class="w-50">
+          <form method="POST">
+            {% csrf_token %}
+            <div class="shadow-2-strong">
+              <span class="crl_white bg-danger">{{form.errors}}</span>
+            </div>
+            <!-- user name -->
+            <div class="form-outline mb-4">
+              {{ form.username }}
+              <label class="form-label" for="username">Username</label>
+            </div>
 
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              {{ form.password }}
+              <label class="form-label" for="password">Password</label>
+            </div>
 
+            <!-- 2 column grid layout for inline styling -->
+            <div class="row mb-4">
+              <div class="col d-flex justify-content-center">
+                <!-- Checkbox -->
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="form1Example3"
+                    checked
+                  />
+                  <label class="form-check-label text-dark" for="form1Example3">
+                    Remember me
+                  </label>
+                </div>
+              </div>
 
-{% load static %}
+              <div class="col">
+                <!-- Simple link -->
+                <a href="{% url 'password_reset' %}" class="text-dark">Forgot password?</a>
+              </div>
+            </div>
 
-{% block login %}
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-dark btn-block">
+              Sign in
+            </button>
+          </form>
 
-<!-- <h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.username }}
-  {{ form.password }}
-  <button type="submit">Login</button>
-</form> -->
-
-<!-- log in start here -->
-<div class="login">
-	<div class="container">
-		<div class="login-main">
-			  <h1>Login</h1>
-		  <div class="col-md-6 login-left">
-			<h2>Existing User</h2>
-			<form method="post">
-                {% csrf_token %}
-                <div class="the_font">{{form.username.label}}</div>
-                {{ form.username }}
-                <div class="the_font">{{form.password.label}}</div>
-				{{ form.password }}
-				<input type="submit" value="Login">
-			</form>
-		  </div>
-		  <div class="col-md-6 login-right">
-		  	 <h3>New User? Create an Account</h3>
-		  	 <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system. and expound the actual teachings of the great.</p>
-		     <a href="{% url 'signup' %}" class="login-btn">Create an Account </a>
-		  </div>
-		  <div class="clearfix"> </div>
-		</div>
-	</div>
-</div> -->
-<!--log in end here-->
-
+          <div class="py-2">
+            <a href="{% url 'signup' %}" class="btn btn-lg btn-success">Create Account</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock login %}
-
-<!-- begining of navlinks_men -->
-{% block navlinks_men  %}
-
-{% for x in queryset %}
-
-<div class="col-sm-4">
-	<ul class="multi-column-dropdown">
-		<li><a href="{% url 'product_m' %}">{{x.category_name}}</a></li>
-	</ul>
-</div>
-
-{% endfor %}
-
-{% endblock navlinks_men %}
-<!-- ending of navlinks_men -->
-
-
-{% block form_link_men %}
-
-<div class="col-sm-4">
-	<ul class="multi-column-dropdown">
-		<li><a href="{% url 'product_m' %}">Men collection</a></li>
-	</ul>
-</div>
-
-{% endblock form_link_men %}
-
-{% block form_link_women %}
-
-<div class="col-sm-4">
-	<ul class="multi-column-dropdown">
-		<li><a href="{% url 'product_m' %}">Women collection</a></li>
-	</ul>
-</div>
-
-{% endblock form_link_women %}
-
-{% block form_link_kids %}
-
-<div class="col-sm-4">
-	<ul class="multi-column-dropdown">
-		<li><a href="{% url 'product_m' %}">kids collection</a></li>
-	</ul>
-</div>
-
-{% endblock form_link_kids %}

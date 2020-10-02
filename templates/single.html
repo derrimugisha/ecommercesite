@@ -1,117 +1,106 @@
-{%  extends 'base.html' %}
+{% extends 'base.html' %} {% load static %} {% block single %}
 
-{% load static %}
+<!-- another container -->
+<div class="container">
+  <div class="row">
+    <div class="row p-lg-2 p-md-0">
+      <div class="col-lg-12 col-md-12">
+        <div class="row shadow-5-strong p-lg-5 p-md-0 p-md-0">
+          <div class="col-lg-6 col-md-12">
+            <div class="singlebox">
+              <img
+                src="{{ object.picture.url }}"
+                alt=""
+                srcset=""
+                class="fitter"
+              />
+            </div>
+          </div>
 
-{% block single %}
+          <div class="col-lg-6">
+            <div id="description" class="shadow-2-strong rounded px-lg-5">
+              <div id="name" class="d-flex justify-content-center rounded">
+                {{object.productname}}
+              </div>
+              <div id="price" class="d-flex justify-content-center">
+                <span class="badge bg-primary">UGX {{object.price}}</span>
+              </div>
+              <div class="d-flex justify-content-center">
+                <h4>Description</h4>
+              </div>
 
-<!--single start here-->
-<div class="single">
-    <div class="container">
-         <div class="single-main">
-             <div class="single-top-main">
-                <div class="col-md-5 single-top">	
-                <div class="flexslider">
-                   <ul class="slides">
-                      
-                     <li >
-                         <div class="thumb-image box-grid"> <img src="{{ object.picture.url }}" data-imagezoom="true" class="img-responsive"> </div>
-                     </li>
-                    
-                     <!-- <li data-thumb="images/si2.jpg">
-                          <div class="thumb-image"> <img src="{% static 'images/s2.jpg' %}" data-imagezoom="true" class="img-responsive"> </div>
-                     </li> -->
-                     <!-- <li data-thumb="images/si3.jpg">
-                        <div class="thumb-image"> <img src="{% static 'images/s3.jpg' %}" data-imagezoom="true" class="img-responsive"> </div>
-                     </li>  -->
-                   </ul>
-             </div>
-             </div>
-             <div class="col-md-7 single-top-left simpleCart_shelfItem">
-                 <h1>{{object.productname}}</h1>
-                 <h6 class="item_price">{{object.price}}</h6>			
-                 <p>{{object.product_description}}</p>
-                 <h4>Size Charts</h4>
-                 <ul class="bann-btns">
-                    
-                     <li><a href="#" id= "ok_btn" class=" my-cart-btn" data-id='{{ object.pk }}'
-                         data-name='{{ object.productname }}' 
-                         data-summary='summary {{ object.productname }}'
-                          data-price= '{{object.price}}' data-quantity="1"
-                           data-image='{{ object.picture.url }}'>Add To Cart</a>
-                    </li>
-                         
-                 </ul>
-             </div>
-            <div class="clearfix"> </div>
+              <p>{{object.product_description}}</p>
+            </div>
+
+            <div
+              id="preview"
+              class="my-cart-btn d-flex justify-content-center rounded"
+            >
+              <a
+                href="#"
+                id="ok_btn"
+                class="btn btn-block btn-outline-information my-2 my-cart-btn"
+                data-id="{{ object.pk }}"
+                data-name="{{ object.productname }}"
+                data-summary="summary {{ object.productname }}"
+                data-price="{{object.price}}"
+                data-quantity="1"
+                data-image="{{ object.picture.url }}"
+                >Add to cart</a
+              >
+            </div>
+          </div>
         </div>
-        <div class="singlepage-product">
-                
-                  {% for x in category %}
-                      <div class="col-md-3 home-grid">
-
-                        <div class="home-product-main">
-
-                            <div class="home-product-top">
-                                <a href="{% url 'single' x.pk %}"><img src="{{ x.picture.url }}" alt="" class="img-responsive zoom-img"></a>
-                            </div>
-
-                            <div class="home-product-bottom">
-
-                                    <h3><a href="{% url 'single' x.pk %}">Claires Shop</a></h3>
-
-                                    <p>Explore Now</p>	
-
-                            </div>
-
-                            <div class="srch">
-
-                                <span>{{x.price}}</span>
-
-                            </div>
-
-                        </div>
-
-                      </div>
-                  {% endfor %}
-                  
-           <div class="clearfix"> </div>
-        </div>
-         </div>
+      </div>
     </div>
- </div>
- <!--single end here-->
+  </div>
+  <div class="col d-flex justify-content-center py-2">
+    <h3>In Claires Store</h3>
+  </div>
+</div>
+<!-- end of container -->
 
- 
+<!-- another container -->
+<div class="container">
+  <div class="row">
+    {% for a in category|slice:"2" %}
+    <div class="row p-lg-2 p-md-0">
+      {% for allproducts in category|slice:"4" %}
+      <div class="col-lg-3 col-md-6 py-lg-2">
+        <div class="px-2 shadow-5-strong w-auto h-100">
+          <div class="singlebox">
+            <a href="{% url 'single' allproducts.pk  %}"
+              ><img
+                src="{{ allproducts.picture.url }}"
+                alt=""
+                srcset=""
+                class="fitter"
+            /></a>
+          </div>
+          <div id="name" class="d-flex justify-content-center rounded">
+            {{allproducts.productname }}
+          </div>
+
+          <div
+            id="price"
+            class="shadow-2 d-flex justify-content-center rounded"
+          >
+            <span class="pill pill-primary">UGX</span> {{allproducts.price}}
+          </div>
+
+          <div id="preview" class="d-flex justify-content-center rounded">
+            <a href="#" class="btn btn-block btn-outline-information my-2"
+              >Add to cart</a
+            >
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<!-- end of container -->
 
 {% endblock single %}
-
-
-{% block form_link_men %}
-
-<div class="col-sm-4">
-	<ul class="multi-column-dropdown">
-		<li><a href="{% url 'product_m' %}">Men collection</a></li>
-	</ul>
-</div>
-
-{% endblock form_link_men %}
-
-{% block form_link_women %}
-
-<div class="col-sm-4">
-	<ul class="multi-column-dropdown">
-		<li><a href="{% url 'product_m' %}">Women collection</a></li>
-	</ul>
-</div>
-
-{% endblock form_link_women %}
-
-{% block form_link_kids %}
-
-<div class="col-sm-4">
-	<ul class="multi-column-dropdown">
-		<li><a href="{% url 'product_m' %}">kids collection</a></li>
-	</ul>
-</div>
-
-{% endblock form_link_kids %}

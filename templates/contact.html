@@ -47,7 +47,7 @@
 
 <div class="col-sm-4">
 	<ul class="multi-column-dropdown">
-		<li><a href="{% url 'product_m' %}">{{x.category_name}}</a></li>
+		<li><a href="{% url 'products' x.pk %}">{{x.category_name}}</a></li>
 	</ul>
 </div>
 
@@ -63,7 +63,7 @@
 
 <div class="col-sm-4">
 	<ul class="multi-column-dropdown">
-		<li><a href="{% url 'product' %}">{{x.category_name}}</a></li>
+		<li><a href="{% url 'products' x.pk %}">{{x.category_name}}</a></li>
 	</ul>
 </div>
 
@@ -79,7 +79,7 @@
 
 <div class="col-sm-4">
 	<ul class="multi-column-dropdown">
-		<li><a href="{% url 'product' %}">{{x.category_name}}</a></li>
+		<li><a href="{% url 'products' x.pk %}">{{x.category_name}}</a></li>
 	</ul>
 </div>
 

@@ -212,21 +212,28 @@
 
     $cartBadge.text(ProductManager.getTotalQuantity());
 
+
     if (!$("#" + idCartModal).length) {
       $('body').append(
-        '<div class="modal fade" id="' + idCartModal + '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">' +
-        '<div class="modal-dialog" role="document">' +
+        '<div class="modal fade" id="' + idCartModal + '" tabindex="-1"  aria-labelledby="myModalLabel" aria-hidden="true">' +
+        '<div class="modal-dialog" >' +
         '<div class="modal-content">' +
-        '<div class="modal-header">' +
+        '<div class="modal-header mybg">' +
+        '<h5 class="modal-title" id="myModalLabel"><span class="fas fa-shopping-cart"></span> My Cart</h5>' +
         '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
-        '<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-shopping-cart"></span> My Cart</h4>' +
         '</div>' +
-        '<div class="modal-body">' +
+        '<div class="modal-body mybg">' +
+        '<div class="row">' +
+        '<div class="col-lg-12" style="overflow: auto">' +
         '<table class="table table-hover table-responsive" id="' + idCartTable + '"></table>' +
         '</div>' +
-        '<div class="modal-footer">' +
-        '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' +
-        '<button type="button" class="btn btn-primary ' + classCheckoutCart + '">Checkout</button>' +
+        '</div>' +
+        //end of body
+        '</div>' +
+        '<div class="modal-footer mybg">' +
+        '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>' +
+        // '<button type="button" class="btn btn-primary ' + classCheckoutCart + '">Checkout</button>' +
+        '<a href="/checkoutpreview" class="btn btn-primary">Checkout Preview</a>'+
         '</div>' +
         '</div>' +
         '</div>' +
@@ -248,7 +255,7 @@
           '<td title="Unit Price" class="text-right">' + options.currencySymbol + MathHelper.getRoundedNumber(this.price) + '</td>' +
           '<td title="Quantity"><input type="number" min="1" style="width: 70px;" class="' + classProductQuantity + '" value="' + this.quantity + '"/></td>' +
           '<td title="Total" class="text-right ' + classProductTotal + '">' + options.currencySymbol + MathHelper.getRoundedNumber(total) + '</td>' +
-          '<td title="Remove from Cart" class="text-center" style="width: 30px;"><a href="javascript:void(0);" class="btn btn-xs btn-danger ' + classProductRemove + '">X</a></td>' +
+          '<td title="Remove from Cart" class="text-center" style="width: 30px;"><a href="javascript:void(0);" class="btn btn-sm btn-danger ' + classProductRemove + '">X</a></td>' +
           '</tr>'
         );
       });

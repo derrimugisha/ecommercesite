@@ -16,7 +16,7 @@
     var empty_array = []
     $.session.set('name',JSON.stringify(empty_array))
 
-    var initial_cart = $.session.get('name')
+    let initial_cart = $.session.get('name')
 
     $('.my-cart-btn').myCart({
       currencySymbol: 'UGX',
@@ -37,7 +37,9 @@
          initial_cart = $.session.get('name')
         console.log("afterAddOnCart", products, totalPrice, totalQuantity);
         console.log("****", initial_cart,'****')
-
+        return initial_cart
+        
+        
       },
       clickOnCartIcon: function($cartIcon, products, totalPrice, totalQuantity) {
         console.log("cart icon clicked", $cartIcon, products, totalPrice, totalQuantity);
@@ -50,6 +52,8 @@
         });
         alert(checkoutString)
         console.log("checking out", products, totalPrice, totalQuantity);
+
+        
         
         //intergrating payment
         function makePayment() {
@@ -93,16 +97,89 @@
     //     console.log("calculating discount", products, totalPrice, totalQuantity);
     //     return totalPrice * 0.5;
     //   }
+    
     });
+
+    
 
     $("#addNewProduct").click(function(event) {
       var currentElementNo = $(".row").children().length + 1;
       $(".row").append('<div class="col-md-3 text-center"><img src="images/img_empty.png" width="150px" height="150px"><br>product ' + currentElementNo + ' - <strong>$' + currentElementNo + '</strong><br><button class="btn btn-danger my-cart-btn" data-id="' + currentElementNo + '" data-name="product ' + currentElementNo + '" data-summary="summary ' + currentElementNo + '" data-price="' + currentElementNo + '" data-quantity="1" data-image="images/img_empty.png">Add to Cart</button><a href="#" class="btn btn-info">Details</a></div>')
     });
+
+    // $('#cart_show').append('<div>'+full_cart+'</div>')
+    detailviewcart()
+
+
   });
 
   $('#ok_btn').click(function(e) {
     e.preventDefault();
     //do other stuff when a click happens
 });
- 
+
+$('.my-cart-icon').click(function(e){
+  e.preventDefault()
+})
+
+// displaying table for the address detailview
+function detailviewcart(){
+
+  let products = JSON.parse(localStorage.products);
+
+    let products_leng = products.length
+
+    // let sa = objectholder(products[0])
+
+    
+
+    console.log("**** am there *****")
+
+
+    for(let x1=0; x1<products_leng; x1++)
+    {
+      let tablerow = products[x1]
+      
+      let tabledata = Object.values(tablerow)
+
+
+      $("#tablebody").append("<tr id='"+x1+ "'>"+
+              "</tr>")
+      let data_leng = tabledata.length
+
+      console.log("hh "+data_leng+" hh")
+
+      
+
+      $("#"+x1).append("<td>"+"<img src='"+tabledata[5]+"'style='width:60px'>"+"</td>"+
+      "<td>"+tabledata[1]+"</td>"+
+      "<td>"+tabledata[4]+"</td>"+
+      "<td id='ggg'>"+" "+tabledata[3]*tabledata[4]+"</td>" )
+  
+
+    }
+
+    var totals=[0];
+        $(document).ready(function(){
+
+            var $dataRows=$("table tr");
+
+            $dataRows.each(function() {
+                $(this).find('#ggg').each(function(i)
+                {        
+                    totals[i]+=parseInt( $(this).html());
+                });
+            });
+            $("#total").each(function(i){  
+                $(this).html("<b>total:</b>"+totals[i]);
+            });
+
+        });
+  
+}
+
+function add(){
+
+  
+
+}

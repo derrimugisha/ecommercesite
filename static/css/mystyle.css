@@ -1,0 +1,74 @@
+body {
+  height: auto;
+}
+
+.mybg {
+  background: rgba(209, 72, 37, 0.26);
+}
+
+.img_container {
+  /* height: 100%;
+    width: 100%; */
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.banner_h {
+  height: 500px;
+}
+.menbg {
+  fill: url("/img/men.jpg");
+}
+.blocker {
+  display: block;
+}
+
+.box_h {
+  height: 400px;
+}
+
+.blocker1 {
+  overflow: hidden;
+}
+
+.singlebox {
+  height: 70%;
+  width: auto;
+}
+.fitter {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  display: block;
+}
+
+.boxheight {
+  height: 50%;
+}
+.Roboto_bold {
+  font-family: "Roboto", sans-serif;
+}
+.clr_balck {
+  color: black;
+}
+.clr_red {
+  color: red;
+}
+
+.clr_white {
+  color: white;
+}
+
+.errorlist li {
+  color: white;
+}
+.badge-notify {
+  background: red;
+  position: relative;
+  top: -17px;
+  right: -30px;
+}
+
+.small1 {
+  font-size: smaller;
+}
