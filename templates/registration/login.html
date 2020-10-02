@@ -9,7 +9,9 @@
         <div class="w-50">
           <form method="POST">
             {% csrf_token %}
-            <div class="shadow-2-strong "><span class="crl_white">{{form.errors}}</span> </div>
+            <div class="shadow-2-strong">
+              <span class="crl_white bg-danger">{{form.errors}}</span>
+            </div>
             <!-- user name -->
             <div class="form-outline mb-4">
               {{ form.username }}
@@ -42,7 +44,7 @@
 
               <div class="col">
                 <!-- Simple link -->
-                <a href="#!" class="text-dark">Forgot password?</a>
+                <a href="{% url 'password_reset' %}" class="text-dark">Forgot password?</a>
               </div>
             </div>
 
@@ -53,7 +55,7 @@
           </form>
 
           <div class="py-2">
-            <a href="#!" class="btn btn-lg btn-success">Create Account</a>
+            <a href="{% url 'signup' %}" class="btn btn-lg btn-success">Create Account</a>
           </div>
         </div>
       </div>

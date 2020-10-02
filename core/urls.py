@@ -12,8 +12,8 @@ from .views import (CheckOut,
                     nav_bar, nav_bar_contact,
                     image_page, nav_bar2,
                     HomeView, SuccessPage, NavLinks,
-                    checkout, AddressForm, MensShow, 
-                    WomensShow,Accessories)
+                    checkout, AddressForm, MensShow,
+                    WomensShow, Accessories)
 
 urlpatterns = [
 
@@ -23,7 +23,7 @@ urlpatterns = [
     path('contact', nav_bar_contact, name='contact'),
     path('products/<int:pk>', NavLinks, name='products'),
     # path('signup',SignUP.as_view(),name='signup'),
-    path('login/',views.LoginView.as_view(form_class=LoginForm),name="login"),
+    path('login/', views.LoginView.as_view(form_class=LoginForm), name="login"),
     path('terms', Terms.as_view(), name='terms'),
     path('productkids', ProductKids.as_view(), name='product_k'),
     path('productmen', ProductMen.as_view(), name='product_m'),
@@ -33,7 +33,7 @@ urlpatterns = [
     path('checkoutpreview', AddressForm.as_view(), name='checkoutpreview'),
     path('men/', MensShow.as_view(), name='men'),
     path('women/', WomensShow.as_view(), name='women'),
-    path('accessories',Accessories.as_view(), name='accessories')
+    path('accessories', Accessories.as_view(), name='accessories')
 
 
 

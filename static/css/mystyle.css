@@ -59,6 +59,16 @@ body {
   color: white;
 }
 
-.errorlist li{
+.errorlist li {
   color: white;
+}
+.badge-notify {
+  background: red;
+  position: relative;
+  top: -17px;
+  right: -30px;
+}
+
+.small1 {
+  font-size: smaller;
 }

@@ -30,7 +30,9 @@
           class="img_container blocker1"
         />
         <div class="p-2">
-          <a href="{% url 'men' %}" class="btn btn-block shadow-2-strong">Men</a>
+          <a href="{% url 'men' %}" class="btn btn-block shadow-2-strong"
+            >Men</a
+          >
         </div>
       </div>
     </div>
@@ -71,7 +73,9 @@
           class="img_container"
         />
         <div class="p-2 blocker">
-          <a href="{% url 'women' %}" class="btn btn-block shadow-2-strong">Women</a>
+          <a href="{% url 'women' %}" class="btn btn-block shadow-2-strong"
+            >Women</a
+          >
         </div>
       </div>
     </div>
@@ -134,11 +138,22 @@
     <div class="col-lg-4 shadow-2-strong py-5">
       {% for womenshow in womenshow %}
       <img src="{{ womenshow.picture.url }}" alt="" srcset="" class="w-100" />
-      {% endfor %}
 
       <div class="d-flex justify-content-center p-2">
-        <a href="#" class="btn btn-lg shadow-2-strong">Add to cart</a>
+        <a
+          href="#"
+          id="ok_btn"
+          class="btn btn-block btn-outline-information my-2 my-cart-btn"
+          data-id="{{ womenshow.pk }}"
+          data-name="{{ womenshow.productname }}"
+          data-summary="summary {{ womenshow.productname }}"
+          data-price="{{womenshow.price}}"
+          data-quantity="1"
+          data-image="{{ womenshow.picture.url }}"
+          >Add to cart</a
+        >
       </div>
+      {% endfor %}
       <div class="d-flex justify-content-center">
         <img
           src="{% static '/img/claireslogo.png' %}"
@@ -164,11 +179,12 @@
       <div class="col-lg-3 col-md-6 py-lg-2">
         <div class="px-2 shadow-5-strong w-auto h-100">
           <div class="singlebox">
-            <a href="{% url 'single' allproducts.pk  %}"><img
-              src="{{ allproducts.picture.url }}"
-              alt=""
-              srcset=""
-              class="fitter"
+            <a href="{% url 'single' allproducts.pk  %}"
+              ><img
+                src="{{ allproducts.picture.url }}"
+                alt=""
+                srcset=""
+                class="fitter"
             /></a>
           </div>
           <div id="name" class="d-flex justify-content-center rounded">
@@ -185,7 +201,14 @@
           <div id="preview" class="d-flex justify-content-center rounded">
             <a
               href="#"
-              class="btn btn-block btn-outline-information my-2"
+              id="ok_btn"
+              class="btn btn-block btn-outline-information my-2 my-cart-btn"
+              data-id="{{ allproducts.pk }}"
+              data-name="{{ allproducts.productname }}"
+              data-summary="summary {{ allproducts.productname }}"
+              data-price="{{allproducts.price}}"
+              data-quantity="1"
+              data-image="{{ allproducts.picture.url }}"
               >Add to cart</a
             >
           </div>
@@ -200,4 +223,3 @@
 <!-- end of container -->
 
 {% endblock heading %}
-

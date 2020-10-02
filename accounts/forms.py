@@ -4,17 +4,28 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 # Sign Up Form
+
+
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField(max_length=254, help_text='Enter a valid email address')
+    email = forms.EmailField(widget=forms.EmailInput(
+        attrs={'class': 'form-control bg-light'}))
+    username = forms.CharField(widget=forms.TextInput(
+        attrs={'class': 'form-control bg-light'}))
+
+    password1 = forms.CharField(widget=forms.PasswordInput(
+        attrs={'class': 'form-control bg-light'}))
+
+    password2 = forms.CharField(widget=forms.PasswordInput(
+        attrs={'class': 'form-control bg-light'}))
 
     class Meta:
         model = User
         fields = [
             'username',
-            'email', 
-            'password1', 
-            'password2', 
-            ]
+            'email',
+            'password1',
+            'password2',
+        ]
 
     # def show_links(request):
     #     nav_query = Category.objects.select_related('type_id').all()

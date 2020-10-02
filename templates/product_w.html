@@ -6,22 +6,22 @@
       <div class="p-5">
         <h1>WOMEN'S STORE</h1>
       </div>
-	</div>
-	<div class="bg-image h-25">
-		<img
-		  src="{% static '/img/wm.jpg' %}"
-		  class="img-fluid  w-100"
-		  alt="Sample"
-		/>
-		<div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
-		  <div class="d-flex justify-content-center align-items-center h-100">
-			<p class="text-white mb-0">
-			  With Claires shop you can get your favourate women's wear! <br />
-			  Scroll down and choose your best of all from Claires shop!
-			</p>
-		  </div>
-		</div>
-	  </div>
+    </div>
+    <div class="bg-image h-25">
+      <img
+        src="{% static '/img/wm.jpg' %}"
+        class="img-fluid w-100"
+        alt="Sample"
+      />
+      <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+        <div class="d-flex justify-content-center align-items-center h-100">
+          <p class="text-white mb-0">
+            With Claires shop you can get your favourate women's wear! <br />
+            Scroll down and choose your best of all from Claires shop!
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -29,9 +29,12 @@
   <div class="row p-lg-2 p-md-0">
     {% for x in women %}
     <div class="col-lg-3 col-md-6 p-lg-2">
-      <div class="px-2 shadow-5-strong">
-        <div class="d-flex justify-content-center">
-          <img src="{{x.picture.url}}" alt="" srcset="" class="w-100" />
+      <div class="px-2 shadow-5-strong w-auto h-100">
+        <div class="singlebox">
+          <!-- <img src="{{x.picture.url}}" alt="" srcset="" class="w-100" /> -->
+          <a href="{% url 'single' x.pk  %}"
+            ><img src="{{ x.picture.url }}" alt="" srcset="" class="fitter"
+          /></a>
         </div>
         <div id="name" class="d-flex justify-content-center rounded">
           {{ x.productname }}
@@ -42,7 +45,16 @@
         </div>
 
         <div id="preview" class="d-flex justify-content-center rounded">
-          <a href="#" class="btn btn-block btn-outline-information my-2"
+          <a
+            href="#"
+            id="ok_btn"
+            class="btn btn-block btn-outline-information my-2 my-cart-btn"
+            data-id="{{ x.pk }}"
+            data-name="{{ x.productname }}"
+            data-summary="summary {{ x.productname }}"
+            data-price="{{x.price}}"
+            data-quantity="1"
+            data-image="{{ x.picture.url }}"
             >Add to cart</a
           >
         </div>
