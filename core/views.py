@@ -14,6 +14,8 @@ from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django.db.models import Q
+
 # from django.views.generic.base import View
 
 
@@ -175,6 +177,23 @@ class Accessories(TemplateView):
         myquery = Product.objects.all().select_related().filter(
             type_category_id=3).order_by('?')
         context['accessories'] = myquery
+        return context
+
+
+class SearchResults(ListView):
+    model = Product
+    template_name = 'search_results.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('mysearch')
+        object_list = Product.objects.filter(Q(productname__icontains=query))
+        return object_list
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(SearchResults, self).get_context_data(*args, **kwargs)
+        myquery = Product.objects.all().select_related().filter(
+            type_category_id=3).order_by('?')
+        context['allproducts'] = myquery
         return context
 
 

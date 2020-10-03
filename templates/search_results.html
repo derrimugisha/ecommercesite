@@ -1,0 +1,103 @@
+{% extends 'base.html' %} {% load static %} {% block heading %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 d-flex justify-content-center">
+      <h5>Search Results</h5>
+    </div>
+  </div>
+
+  <div class="row p-lg-2 p-md-0">
+    {% for x in object_list %}
+    <div class="col-lg-3 col-md-6 p-lg-2">
+      <div class="px-2 shadow-5-strong w-auto h-100">
+        <div class="singlebox">
+          <!-- <img src="{{x.picture.url}}" alt="" srcset="" class="w-100" /> -->
+          <a href="{% url 'single' x.pk  %}"
+            ><img src="{{ x.picture.url }}" alt="" srcset="" class="fitter"
+          /></a>
+        </div>
+        <div id="name" class="d-flex justify-content-center rounded">
+          {{ x.productname }}
+        </div>
+
+        <div id="price" class="shadow-2 d-flex justify-content-center rounded">
+          <span class="pill pill-primary">UGX</span> {{x.price}}
+        </div>
+
+        <div id="preview" class="d-flex justify-content-center rounded">
+          <a
+            href="#"
+            id="ok_btn"
+            class="btn btn-block btn-outline-information my-2 my-cart-btn"
+            data-id="{{ x.pk }}"
+            data-name="{{ x.productname }}"
+            data-summary="summary {{ x.productname }}"
+            data-price="{{x.price}}"
+            data-quantity="1"
+            data-image="{{ x.picture.url }}"
+            >Add to cart</a
+          >
+        </div>
+      </div>
+    </div>
+
+    {% empty %}
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <div class="shadow-2-strong p-2 rounded">
+          <span class="font-weight-bolder"
+            >Sorry we did not get what you are searching for! but you can check
+            for products in our store Below!</span
+          >
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <span class="font-weight-bolder">More products</span>
+    </div>
+  </div>
+  <div class="row p-lg-2 p-md-0">
+    {% for x in allproducts %}
+    <div class="col-lg-3 col-md-6 p-lg-2">
+      <div class="px-2 shadow-5-strong w-auto h-100">
+        <div class="singlebox">
+          <!-- <img src="{{x.picture.url}}" alt="" srcset="" class="w-100" /> -->
+          <a href="{% url 'single' x.pk  %}"
+            ><img src="{{ x.picture.url }}" alt="" srcset="" class="fitter"
+          /></a>
+        </div>
+        <div id="name" class="d-flex justify-content-center rounded">
+          {{ x.productname }}
+        </div>
+
+        <div id="price" class="shadow-2 d-flex justify-content-center rounded">
+          <span class="pill pill-primary">UGX</span> {{x.price}}
+        </div>
+
+        <div id="preview" class="d-flex justify-content-center rounded">
+          <a
+            href="#"
+            id="ok_btn"
+            class="btn btn-block btn-outline-information my-2 my-cart-btn"
+            data-id="{{ x.pk }}"
+            data-name="{{ x.productname }}"
+            data-summary="summary {{ x.productname }}"
+            data-price="{{x.price}}"
+            data-quantity="1"
+            data-image="{{ x.picture.url }}"
+            >Add to cart</a
+          >
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+{% endblock heading %}

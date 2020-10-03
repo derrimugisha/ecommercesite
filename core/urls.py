@@ -13,7 +13,7 @@ from .views import (CheckOut,
                     image_page, nav_bar2,
                     HomeView, SuccessPage, NavLinks,
                     checkout, AddressForm, MensShow,
-                    WomensShow, Accessories)
+                    WomensShow, Accessories, SearchResults)
 
 urlpatterns = [
 
@@ -33,8 +33,7 @@ urlpatterns = [
     path('checkoutpreview', AddressForm.as_view(), name='checkoutpreview'),
     path('men/', MensShow.as_view(), name='men'),
     path('women/', WomensShow.as_view(), name='women'),
-    path('accessories', Accessories.as_view(), name='accessories')
-
-
+    path('accessories', Accessories.as_view(), name='accessories'),
+    path('search/', SearchResults.as_view(), name='search_results'),
 
 ]
