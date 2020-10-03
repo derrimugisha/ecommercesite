@@ -25,7 +25,7 @@ SECRET_KEY = '8x6ny1u$^q2l!(hrp1ptjq#zx2i7i%u3ow2!jt5)&6oylmq@rl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['derrimugisha.pythonanywhere.com']
 
 
 # Application definition
@@ -124,11 +124,13 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = 'media'
+MEDIA_ROOT = '/home/derrimugisha/ecommercesite/media'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static'),
+# ]
+
+STATIC_ROOT = '/home/derrimugisha/ecommercesite/static'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
