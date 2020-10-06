@@ -89,9 +89,18 @@
           </div>
 
           <div id="preview" class="d-flex justify-content-center rounded">
-            <a href="#" class="btn btn-block btn-outline-information my-2"
-              >Add to cart</a
-            >
+            <a
+                href="#"
+                id="ok_btn"
+                class="btn btn-block btn-outline-information my-2 my-cart-btn"
+                data-id="{{ allproducts.pk }}"
+                data-name="{{ allproducts.productname }}"
+                data-summary="summary {{ allproducts.productname }}"
+                data-price="{{allproducts.price}}"
+                data-quantity="1"
+                data-image="{{ allproducts.picture.url }}"
+                >Add to cart</a
+              >
           </div>
         </div>
       </div>
