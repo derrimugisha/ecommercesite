@@ -26,12 +26,11 @@
 </div>
 
 <div class="container">
-  <div class="row p-lg-2 p-md-0">
+  <div class="row m-lg-2 m-sm-2 m-md-0 p-md-0 row-eq-height">
     {% for x in women %}
-    <div class="col-lg-3 col-md-6 p-lg-2">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 py-lg-2 p-md-2 p-sm-2">
       <div class="px-2 shadow-5-strong w-auto h-100">
         <div class="singlebox">
-          <!-- <img src="{{x.picture.url}}" alt="" srcset="" class="w-100" /> -->
           <a href="{% url 'single' x.pk  %}"
             ><img src="{{ x.picture.url }}" alt="" srcset="" class="fitter"
           /></a>
