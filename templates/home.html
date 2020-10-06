@@ -21,13 +21,13 @@
 <!-- another container -->
 <div class="container">
   <div class="row p-2">
-    <div class="col-lg-4">
-      <div class="shadow-2-strong p-lg-2 rounded img_container">
+    <div class="col-lg-4 col-md-4 col-sm-4 p-lg-2 p-sm-0 p-md-0">
+      <div class="shadow-2-strong p-lg-2 p-sm-0 p-md-2 rounded img_container">
         <img
           src="{% static '/img/men3.jpg' %}"
           alt=""
           srcset=""
-          class="img_container blocker1"
+          class="fitter blocker1"
         />
         <div class="p-2">
           <a href="{% url 'men' %}" class="btn btn-block shadow-2-strong"
@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div class="col-lg-4" id="themidle">
+    <div class="col-lg-4 col-md-8 col-sm-6 p-lg-2" id="themidle">
       <div class="shadow-2-strong p-2 rounded">
         <div class="d-flex justify-content-center">
           <img
@@ -64,7 +64,7 @@
       </div>
     </div>
 
-    <div class="col-lg-4 text-center">
+    <div class="col-lg-4 col-md-12 col-sm-12 text-center">
       <div class="shadow-2-strong p-2 rounded">
         <img
           src="{% static '/img/woman11.jpg' %}"
@@ -169,56 +169,54 @@
 
 <!-- another container -->
 <div class="container">
-  <div class="row">
+  <div class="row m-2">
     <div class="col d-flex justify-content-center py-2">
       <h3>In Claires Store</h3>
     </div>
-    {% for a in all_products|slice:"2" %}
-    <div class="row p-lg-2 p-md-0">
-      {% for allproducts in all_products|slice:"4" %}
-      <div class="col-lg-3 col-md-6 py-lg-2">
-        <div class="px-2 shadow-5-strong w-auto h-100">
-          <div class="singlebox">
-            <a href="{% url 'single' allproducts.pk  %}"
-              ><img
-                src="{{ allproducts.picture.url }}"
-                alt=""
-                srcset=""
-                class="fitter"
-            /></a>
-          </div>
-          <div id="name" class="d-flex justify-content-center rounded">
-            {{allproducts.productname }}
-          </div>
+  </div>
 
-          <div
-            id="price"
-            class="shadow-2 d-flex justify-content-center rounded"
+  {% for a in all_products|slice:"2" %}
+  <div class="row m-lg-2 m-sm-2 m-md-0 p-md-0 row-eq-height">
+    {% for allproducts in all_products|slice:"4" %}
+    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 py-lg-2 p-md-2 p-sm-2">
+      <div class="px-2 shadow-5-strong w-auto h-100">
+        <div class="singlebox">
+          <a href="{% url 'single' allproducts.pk  %}"
+            ><img
+              src="{{ allproducts.picture.url }}"
+              alt=""
+              srcset=""
+              class="fitter"
+          /></a>
+        </div>
+        <div id="name" class="d-flex justify-content-center rounded">
+          {{allproducts.productname }}
+        </div>
+
+        <div id="price" class="shadow-2 d-flex justify-content-center rounded">
+          <span class="pill pill-primary">UGX</span> {{allproducts.price}}
+        </div>
+
+        <div id="preview" class="d-flex justify-content-center rounded">
+          <a
+            href="#"
+            id="ok_btn"
+            class="btn btn-block btn-outline-information my-2 my-cart-btn"
+            data-id="{{ allproducts.pk }}"
+            data-name="{{ allproducts.productname }}"
+            data-summary="summary {{ allproducts.productname }}"
+            data-price="{{allproducts.price}}"
+            data-quantity="1"
+            data-image="{{ allproducts.picture.url }}"
+            >Add to cart</a
           >
-            <span class="pill pill-primary">UGX</span> {{allproducts.price}}
-          </div>
-
-          <div id="preview" class="d-flex justify-content-center rounded">
-            <a
-              href="#"
-              id="ok_btn"
-              class="btn btn-block btn-outline-information my-2 my-cart-btn"
-              data-id="{{ allproducts.pk }}"
-              data-name="{{ allproducts.productname }}"
-              data-summary="summary {{ allproducts.productname }}"
-              data-price="{{allproducts.price}}"
-              data-quantity="1"
-              data-image="{{ allproducts.picture.url }}"
-              >Add to cart</a
-            >
-          </div>
         </div>
       </div>
-
-      {% endfor %}
     </div>
+
     {% endfor %}
   </div>
+  {% endfor %}
 </div>
 <!-- end of container -->
 
