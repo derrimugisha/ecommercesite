@@ -28,34 +28,36 @@
 <div class="container">
   <div class="row m-lg-2 m-sm-2 m-md-0 p-md-0 row-eq-height">
     {% for x in women %}
-    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 py-lg-2 p-md-2 p-sm-2">
-      <div class="px-2 shadow-5-strong w-auto h-100">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-8 py-lg-2 p-md-2 p-sm-2 ">
+      <div class="px-2 shadow-5-strong w-auto h-100 py-2">
         <div class="singlebox">
           <a href="{% url 'single' x.pk  %}"
             ><img src="{{ x.picture.url }}" alt="" srcset="" class="fitter"
           /></a>
         </div>
-        <div id="name" class="d-flex justify-content-center rounded">
-          {{ x.productname }}
-        </div>
+        <div class="row">
+          <div id="name" class="col-12 col-md-12 col-sm-12">
+            {{ x.productname }}
+          </div>
 
-        <div id="price" class="shadow-2 d-flex justify-content-center rounded">
-          <span class="pill pill-primary">UGX</span> {{x.price}}
-        </div>
+          <div id="price" class="col-12 col-md-12 col-sm-12">
+            <span class="pill pill-primary">UGX</span> {{x.price}}
+          </div>
 
-        <div id="preview" class="d-flex justify-content-center rounded">
-          <a
-            href="#"
-            id="ok_btn"
-            class="btn btn-block btn-outline-information my-2 my-cart-btn"
-            data-id="{{ x.pk }}"
-            data-name="{{ x.productname }}"
-            data-summary="summary {{ x.productname }}"
-            data-price="{{x.price}}"
-            data-quantity="1"
-            data-image="{{ x.picture.url }}"
-            >Add to cart</a
-          >
+          <div id="preview" class="col-12 col-md-12 col-sm-12 pb-4">
+            <a
+              href="#"
+              id="ok_btn"
+              class="btn btn-block btn-sm btn-outline-information my-2 my-cart-btn"
+              data-id="{{ x.pk }}"
+              data-name="{{ x.productname }}"
+              data-summary="summary {{ x.productname }}"
+              data-price="{{x.price}}"
+              data-quantity="1"
+              data-image="{{ x.picture.url }}"
+              >Add to cart</a
+            >
+          </div>
         </div>
       </div>
     </div>

@@ -176,40 +176,40 @@
   </div>
 
   {% for a in all_products|slice:"2" %}
-  <div class="row m-lg-2 m-sm-2 m-md-0 p-md-0 row-eq-height">
+  <div class="row m-lg-2 m-sm-2 m-md-0 p-md-0  row-eq-height">
     {% for allproducts in all_products|slice:"4" %}
-    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 py-lg-2 p-md-2 p-sm-2">
-      <div class="px-2 shadow-5-strong w-auto h-100">
-        <div class="singlebox">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-8 py-lg-2 p-md-2 p-sm-2 ">
+      <div class="px-2 shadow-5-strong w-auto h-100 py-2">
+        <div class="singlebox ">
           <a href="{% url 'single' allproducts.pk  %}"
             ><img
               src="{{ allproducts.picture.url }}"
               alt=""
               srcset=""
-              class="fitter"
+              class="fitter "
           /></a>
         </div>
-        <div id="name" class="d-flex justify-content-center rounded">
-          {{allproducts.productname }}
-        </div>
-
-        <div id="price" class="shadow-2 d-flex justify-content-center rounded">
-          <span class="pill pill-primary">UGX</span> {{allproducts.price}}
-        </div>
-
-        <div id="preview" class="d-flex justify-content-center rounded">
-          <a
-            href="#"
-            id="ok_btn"
-            class="btn btn-block btn-outline-information my-2 my-cart-btn"
-            data-id="{{ allproducts.pk }}"
-            data-name="{{ allproducts.productname }}"
-            data-summary="summary {{ allproducts.productname }}"
-            data-price="{{allproducts.price}}"
-            data-quantity="1"
-            data-image="{{ allproducts.picture.url }}"
-            >Add to cart</a
-          >
+        <div class="row">
+          <div class="col-12 col-md-12 col-sm-12">
+            {{allproducts.productname }}
+          </div>
+          <div class="col-12 col-md-12 col-sm-12">
+            <span class="">UGX</span> {{allproducts.price}}
+          </div>
+          <div class="col-12 col-md-12 col-sm-12 pb-4">
+            <a
+              href="#"
+              id="ok_btn"
+              class="btn btn-block btn-sm btn-outline-information my-2 my-cart-btn"
+              data-id="{{ allproducts.pk }}"
+              data-name="{{ allproducts.productname }}"
+              data-summary="summary {{ allproducts.productname }}"
+              data-price="{{allproducts.price}}"
+              data-quantity="1"
+              data-image="{{ allproducts.picture.url }}"
+              >Add to cart</a
+            >
+          </div>
         </div>
       </div>
     </div>
