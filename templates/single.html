@@ -66,8 +66,8 @@
     {% for a in category|slice:"2" %}
     <div class="row m-lg-2 m-sm-2 m-md-0 p-md-0 row-eq-height">
       {% for allproducts in category|slice:"4" %}
-      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 py-lg-2 p-md-2 p-sm-2">
-        <div class="px-2 shadow-5-strong w-auto h-100">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-8 py-lg-2 p-md-2 p-sm-2 ">
+        <div class="px-2 shadow-5-strong w-auto h-100 py-2">
           <div class="singlebox">
             <a href="{% url 'single' allproducts.pk  %}"
               ><img
@@ -77,22 +77,35 @@
                 class="fitter"
             /></a>
           </div>
-          <div id="name" class="d-flex justify-content-center rounded">
-            {{allproducts.productname }}
-          </div>
+      <div class="row">
 
-          <div
-            id="price"
-            class="shadow-2 d-flex justify-content-center rounded"
-          >
-            <span class="pill pill-primary">UGX</span> {{allproducts.price}}
-          </div>
+        <div id="name" class="col-12 col-md-12 col-sm-12">
+          {{allproducts.productname }}
+        </div>
 
-          <div id="preview" class="d-flex justify-content-center rounded">
-            <a href="#" class="btn btn-block btn-outline-information my-2"
-              >Add to cart</a
-            >
-          </div>
+        <div
+          id="price"
+          class="col-12 col-md-12 col-sm-12"
+        >
+          <span class="pill pill-primary">UGX</span> {{allproducts.price}}
+        </div>
+
+        <div id="preview" class="col-12 col-md-12 col-sm-12 pb-4">
+          <a
+          href="#"
+          id="ok_btn"
+          class="btn btn-block btn-sm btn-outline-information my-2 my-cart-btn"
+          data-id="{{ allproducts.pk }}"
+          data-name="{{ allproducts.productname }}"
+          data-summary="summary {{ allproducts.productname }}"
+          data-price="{{allproducts.price}}"
+          data-quantity="1"
+          data-image="{{ allproducts.picture.url }}"
+          >Add to cart</a
+        >
+        </div>
+
+      </div>
         </div>
       </div>
 
